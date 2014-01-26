@@ -10,4 +10,21 @@ a {
 g {
       fill: white;
       stroke: black;
-      }
+}
+
+
+.Staten_Island:hover {
+	fill: #6C8cD5;
+}
+.Brooklyn:hover {
+	fill: #5CCCCC;
+}
+.Manhattan:hover {
+	fill: #67E667;
+}
+.Queens:hover {
+	fill: #C9F76F;
+}
+.Bronx:hover {
+	fill: #876FD7;
+}

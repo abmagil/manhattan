@@ -8,7 +8,7 @@ var canvas = d3.select("body").append("svg")
 var projection = d3.geo.mercator()
       .center([-73.94, 40.70])
       .scale(70000)
-      .translate([(width) / 4, (height)/2]);
+      .translate([(width) / 5, (height)/2]);
       
 var path = d3.geo.path().projection(projection);
 
