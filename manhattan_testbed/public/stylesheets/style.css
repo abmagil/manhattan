@@ -28,3 +28,7 @@ g {
 .Bronx:hover {
 	fill: #876FD7;
 }
+
+#sidebar {
+	float: right;
+}
