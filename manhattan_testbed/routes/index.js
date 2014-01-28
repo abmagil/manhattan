@@ -4,5 +4,10 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
+	var options = { 
+		title: 'Express',
+		content: "WORDS WORDS WORDS"
+	}
+
+  	res.render('index', options);
 };
