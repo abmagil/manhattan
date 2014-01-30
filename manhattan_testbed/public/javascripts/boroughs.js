@@ -1,14 +1,22 @@
-var height = 700;
-var width = 2000;
+// Caged from http://eyeseast.github.io/visible-data/2013/08/26/responsive-d3/
+var margin = {top: 10, left: 10, bottom: 10, right: 10}
+  , width = parseInt(d3.select('#main').style('width'))
+  , width = width - margin.left - margin.right
+  , mapRatio = .45
+  , height = width * mapRatio;
+
+  console.log("width: " + width );
+  console.log("height: " + height );
 
 var canvas = d3.select("body").append("svg")
-      .attr("width", height)
-      .attr("height", width);
+      .attr("width", width)
+      .attr("height", height)
+      .attr("class", "span8");
       
 var projection = d3.geo.mercator()
       .center([-73.94, 40.70])
       .scale(70000)
-      .translate([(width) / 5, (height)/2]);
+      .translate([(width) / 2, (height)/2]);
       
 var path = d3.geo.path().projection(projection);
 

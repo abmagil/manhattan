@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin-color: #66A3D2;
 }
 
 a {
@@ -31,4 +32,5 @@ g {
 
 #sidebar {
 	float: right;
+	
 }
