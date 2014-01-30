@@ -1,9 +1,11 @@
+var config = require('config');
+
 // Glue code to pull information from BusTime.  Presumably I will need to bolster and modularize.
 
 var bustime = {};
 
 bustime.agencies = ["MTA NYCT", "MTABC"];
-bustime.baseURL = "http://app.dev.obanyc.com";
+bustime.baseURL = "http://app." + config.env.target_environment + ".obanyc.com";
 
 // Pull a JSON listing of routes.  Response objects have
 // shortName: 	human-readable route name
@@ -15,4 +17,4 @@ bustime.getRoutes = function() {
 	console.log(callURL);
 };
 
-module.exports.bustime = bustime;
+module.exports = bustime;

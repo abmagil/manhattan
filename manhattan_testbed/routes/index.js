@@ -6,7 +6,7 @@ bustime = require("../bustime");
 exports.index = function(req, res){
 	var options = { 
 		title: 'Express',
-		content: bustime.bustime.getRoutes()
+		content: bustime.getRoutes() || "No Data Retrieved"
 	}
 
   	res.render('index', options);
