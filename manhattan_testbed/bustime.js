@@ -1,6 +1,6 @@
 // Glue code to pull information from BusTime.  Presumably I will need to bolster and modularize.
 
-bustime = {};
+var bustime = {};
 
 bustime.agencies = ["MTA NYCT", "MTABC"];
 bustime.baseURL = "http://app.dev.obanyc.com";
@@ -12,5 +12,7 @@ bustime.baseURL = "http://app.dev.obanyc.com";
 bustime.getRoutes = function() {
 	var routeAPI = "/api/where/routes-for-agency/";
 	var callURL = this.baseURL + routeAPI;
-	// Call it somehow.
-}
+	console.log(callURL);
+};
+
+module.exports.bustime = bustime;
