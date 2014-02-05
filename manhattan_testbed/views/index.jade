@@ -1,8 +1,10 @@
 extends layout
 
 block content
-	script(src='javascripts/boroughs.js')
+	
 
 block sidebar
-	#sidebar
-		=content
+	=content
+
+block scripts
+	script(src='javascripts/boroughs.js')

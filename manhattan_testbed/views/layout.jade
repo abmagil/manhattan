@@ -9,9 +9,12 @@ html
     script(src='//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js')
 
     script(src='javascripts/d3.js', charset='utf-8')
-  body.row-fluid
-    #sidebar.span4
-        block sidebar
-    #main.span8
-        block content
-    
+  body
+    .row-fluid
+        #main.col-xs-8
+            block content
+        #sidebar.col-xs-4
+            block sidebar
+    .row-fluid
+        #scripts
+            block scripts
