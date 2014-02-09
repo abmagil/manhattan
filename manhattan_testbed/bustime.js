@@ -19,8 +19,8 @@ bustime.getRoutes = function(callback) {
 	
 	bustime.agencies.forEach( function(agency) {
 		var options = {
-			hostname: "app."+config.target_environment +".obanyc.com",
-			path: routeAPI + agency +".json?key=" + config.APIKEY,
+			hostname: "app.dev.obanyc.com" || "app."+config.target_environment +".obanyc.com",
+			path: routeAPI + agency +".json?key=" + "TEST" || config.APIKEY,
 			method: "GET"
 		};
 
@@ -33,7 +33,6 @@ bustime.getRoutes = function(callback) {
 
 			res.on('data', function(chunk) {
 				raw += chunk;
-				callback(routes);
 			});
 
 			res.on('end', function() {
