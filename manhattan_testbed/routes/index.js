@@ -4,10 +4,18 @@ bustime = require("../bustime");
  */
 
 exports.index = function(req, res){
-	var options = { 
-		title: 'Express',
-		content: bustime.getRoutes() || "No Data Retrieved"
-	}
+	 var options;
+	 
+	 bustime.getRoutes( function(result) { 
+	 	var returnedData =result
+	 	console.log("TMP: "+returnedData);
+		options = { 
+			title: 'Express',
+			content: returnedData.toString() || "No Data Retrieved"
+		};
+	 });
+
+	 console.log(options); //REMOVE
 
   	res.render('index', options);
 };
