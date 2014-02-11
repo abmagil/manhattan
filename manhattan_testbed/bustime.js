@@ -39,7 +39,10 @@ bustime.getRoutes = function(callback) {
 				var fullroutes = JSON.parse(raw);
 				var tmp = fullroutes['data']['list'];	//Just the list of routes
 				tmp.forEach( function(entry) {
-					routes.push({shortName: entry['shortName'],longName: entry['longName'],color: entry['color']});
+					routes.push({ 	shortName: entry['shortName'],
+							longName: entry['longName'],
+							color: '#' + entry['color']
+					});
 				});
 				callback(routes);
 			});

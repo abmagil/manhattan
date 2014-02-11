@@ -7,13 +7,16 @@ exports.index = function(req, res){
 	 var options;
 	 
 	 bustime.getRoutes( function(result) { 
-	 	console.log("result:", result);
+	 	for(var i = 0; i < result.length; i++) {
+	 		route = result[i];
+	 		console.log(Object.keys(route));
+	 	}
 	 	options = { 
 			title: 'Express',
 			content: result || "No Data Retrieved"
 		};
 
   		res.render('index', options);
-  		console.log(options)
+  		// console.log(options);
 	 });
 };
