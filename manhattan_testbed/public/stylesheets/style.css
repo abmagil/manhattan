@@ -13,6 +13,11 @@ g {
       stroke: black;
 }
 
+h2 {
+  border-bottom: 2px solid;
+}
+
+
 
 .Staten_Island:hover {
 	fill: #6C8cD5;
@@ -31,5 +36,6 @@ g {
 }
 
 #sidebar {
-
+  overflow: scroll;
+  font: 23px Helvetica, arial, clean, sans-serif;
 }

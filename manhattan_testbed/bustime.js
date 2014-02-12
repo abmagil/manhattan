@@ -44,6 +44,13 @@ bustime.getRoutes = function(callback) {
 							color: '#' + entry['color']
 					});
 				});
+				routes.sort(function(a,b) {
+					  if (a.shortName < b.shortName)
+						return -1;
+					  if (a.shortName > b.shortName)
+						return 1;
+					  return 0;
+				});
 				callback(routes);
 			});
 		});

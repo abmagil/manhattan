@@ -9,7 +9,6 @@ exports.index = function(req, res){
 	 bustime.getRoutes( function(result) { 
 	 	for(var i = 0; i < result.length; i++) {
 	 		route = result[i];
-	 		console.log(Object.keys(route));
 	 	}
 	 	options = { 
 			title: 'Express',
