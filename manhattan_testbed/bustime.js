@@ -45,11 +45,19 @@ bustime.getRoutes = function(callback) {
 					});
 				});
 				routes.sort(function(a,b) {
-					  if (a.shortName < b.shortName)
+					//Split into text and numeric portions
+					  r = /([a-zA-Z]*)([0-9]*)/;
+					  matchA = r.exec(a['shortName']);
+					  matchB = r.exec(b['shortName']);
+					  //If can sort on letter, do so
+					  if (matchA[1] < matchB[1])
 						return -1;
-					  if (a.shortName > b.shortName)
+					  if (matchA[1] > matchB[1])
 						return 1;
-					  return 0;
+					//If letters match, coerce numeric portion to number and compare
+					aNum = parseInt(matchA[2]);
+					bNum = parseInt(matchB[2]);
+					return aNum - bNum;
 				});
 				callback(routes);
 			});
