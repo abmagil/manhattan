@@ -4,7 +4,6 @@ var http = require('http');
 // Glue code to pull information from BusTime.  Presumably I will need to bolster and modularize.
 
 var bustime = {};
-routes = [];
 
 bustime.agencies = ["MTA%20NYCT"]; //, "MTABC"
 bustime.baseURL = "http://app."+config.target_environment +".obanyc.com";
@@ -14,7 +13,6 @@ bustime.baseURL = "http://app."+config.target_environment +".obanyc.com";
 // longName: 	human-readable description of route
 // color: 		Color associated with the route.
 bustime.getRoutes = function(callback) {
-	var raw = "";
 	var routeAPI = "/api/where/routes-for-agency/";
 	
 	bustime.agencies.forEach( function(agency) {
@@ -25,6 +23,9 @@ bustime.getRoutes = function(callback) {
 		};
 
 		var req = http.request(options, function(res) {
+			var raw = "";
+			routes = [];
+			
 			console.log("API Call returned status " + res.statusCode);
 
 			res.on('error', function(e) {

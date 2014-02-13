@@ -6,7 +6,8 @@ block content
 block sidebar
 	-for(var i = 0; i < content.length; i++)
 		-route = content[i]
-		.col-xs-6(style= 'color: #{route["color"]}') #{route['shortName']}
+		-shortName = route.shortName
+		a.col-xs-6(style= 'color: #{route["color"]}',href= shortName) #{shortName}
 
 block scripts
 	script(src='javascripts/boroughs.js')
