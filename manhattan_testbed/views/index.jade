@@ -4,11 +4,15 @@ block content
 	
 
 block sidebar
-	-for(var i = 0; i < content.length; i++)
-		-route = content[i]
-		-shortName = route.shortName
-		.col-xs-6
-			a(style= 'color: #{route["color"]}',href= shortName) #{shortName}
+	if content
+		-for(var i = 0; i < content.length; i++)
+			-route = content[i]
+			-shortName = route.shortName
+			.col-xs-6
+				a(style= 'color: #{route["color"]}',href= shortName) #{shortName}
+	else
+		h1
+			a(href= 'mailto:amagil@camsys.com') No Routes Retrieved
 
 block scripts
 	script(src='javascripts/boroughs.js')

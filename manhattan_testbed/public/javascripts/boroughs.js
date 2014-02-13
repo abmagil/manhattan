@@ -33,5 +33,6 @@ d3.json("javascripts/nybb.geojson", function (data) {
             .enter().append("path")
             .attr("class", function(d){ return d.properties.BoroName + " borough"; })
             .attr("data-code", function(d) {return d.properties.BoroCode})
-            .attr("d", path);
+            .attr("d", path)
+            .on("click", function() {console.log(d3.select(this).attr("data-code"))});  //Will eventually need this to filter
 });
