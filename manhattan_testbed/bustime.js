@@ -2,13 +2,12 @@
 
 module.exports = function(environment) {
 	var config = require('./config')(environment);
-	var request = require('request');
 	var http = require('http');
 	
 	return {
 		config: config,
 		agencies: ["MTA%20NYCT"], //, "MTABC"
-		baseURL: "http://app."+ config.env +".obanyc.com",
+		baseURL: "app."+ config.env +".obanyc.com",
 
 		// Pull a JSON listing of routes.  Response objects have
 		// shortName: 	human-readable route name
@@ -17,13 +16,13 @@ module.exports = function(environment) {
 		getRoutes: function(callback) {
 			var routeAPI = "/api/where/routes-for-agency/";
 			
-			bustime.agencies.forEach( function(agency) {
+			this.agencies.forEach( function(agency) {
 				var options = {
-					hostname: this.baseURL || "dev",
-					path: routeAPI + agency +".json?key=" + config.APIKEY || "TEST",
+					hostname: this.baseURL,
+					path: routeAPI + agency +".json?key=" + (config.APIKEY || "TEST"),
 					method: "GET"
 				};
-
+				
 				var req = http.request(options, function(res) {
 					var raw = "";
 					routes = [];
@@ -67,7 +66,7 @@ module.exports = function(environment) {
 				});
 
 				req.end();
-			});
+			}, this); //'this' sets the 'this' object to containing object
 		}
 	}
 }

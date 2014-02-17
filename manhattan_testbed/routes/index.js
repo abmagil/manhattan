@@ -1,4 +1,4 @@
-bustime = require("../bustime");
+bustime = require("../bustime")();
 /*
  * GET home page.
  */
