@@ -10,4 +10,12 @@ describe("Config module", function() {
 		var knownKeys = ['mode', 'port', 'env'];
 		expect(Object.keys(config)).toEqual(knownKeys);
 	});
+
+	it("defaults to the development configuration", function() {
+		var config = require('../config');
+		expect(config().env).toMatch('dev');
+		expect(config('local').env).toMatch('dev');
+		expect(config('staging').env).toMatch('qa');
+
+	})
 });
